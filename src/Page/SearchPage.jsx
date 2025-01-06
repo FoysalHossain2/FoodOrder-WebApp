@@ -26,16 +26,17 @@ const SearchPage = () => {
                 <Search />
             </div>
             <div className="xl:pl-[150px] lg:pl-16 md:pl-0 mt-10">
-              <h1 className="font-DM_Sans text-lg" >Recant Search</h1>
+              <h1 className="font-DM_Sans text-lg" >Recant Searches</h1>
+
+              <div className="flex">
+                {data.map((item, id) => (
+                  <div style={{transform: `translateX(-600)`}} key={id} className="h-28 w-28 shrink-0 duration-500">
+                    <img src={item.image} alt="title"  />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {data.map((item, id) => (
-            <div key={id}>
-              <img src={"http://localhost:3000/images" + item.image} alt="title" />
-              <p>{item.path}</p>
-            </div>
-          ))}
 
         </div>
     </div>

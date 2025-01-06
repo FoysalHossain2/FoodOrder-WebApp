@@ -1,4 +1,5 @@
 import Pizza from '../../assets/Pizza.png'
+import { ModalComponent } from '../CommonComponent/Modal';
 
 const FoodSection = () => {
   return (
@@ -28,8 +29,11 @@ const FoodSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             {/* Card 1 */}
             <div className="bg-white shadow-md p-4 rounded-lg flex flex-col items-center text-center">
-              <div className="bg-orange-100 p-4 rounded-full mb-3">
-                <img src="/path-to-fast-food-icon.png" alt="Fast Food" className="h-10 w-10" />
+              <div className=" p-4 rounded-full mb-3">
+                <img src="https://i.pinimg.com/originals/2b/f6/0e/2bf60eaa0d8124a4fb0d2e16428b54a1.jpg"
+                  alt="Fast Food" 
+                  className="h-20 w-20" 
+                />
               </div>
               <h4 className="font-bold text-lg">Fast Foods</h4>
               <p className="text-gray-500 text-sm">Healthy Foods are nutrient-dense foods.</p>
@@ -37,8 +41,11 @@ const FoodSection = () => {
 
             {/* Card 2 */}
             <div className="bg-white shadow-md p-4 rounded-lg flex flex-col items-center text-center">
-              <div className="bg-orange-100 p-4 rounded-full mb-3">
-                <img src="/path-to-healthy-food-icon.png" alt="Healthy Foods" className="h-10 w-10" />
+              <div className=" p-4 rounded-full mb-3">
+                <img src="https://img.freepik.com/free-vector/fruit-salad-bowl-concept_23-2148505162.jpg"
+                 alt="Healthy Foods" 
+                 className="h-20 w-20"
+                 />
               </div>
               <h4 className="font-bold text-lg">Healthy Foods</h4>
               <p className="text-gray-500 text-sm">Healthy Foods are nutrient-dense foods.</p>
@@ -46,19 +53,20 @@ const FoodSection = () => {
 
             {/* Card 3 */}
             <div className="bg-white shadow-md p-4 rounded-lg flex flex-col items-center text-center">
-              <div className="bg-orange-100 p-4 rounded-full mb-3">
-                <img src="/path-to-fast-delivery-icon.png" alt="Fast Delivery" className="h-10 w-10" />
+              <div className=" p-4 rounded-full mb-3">
+                <img src="https://thumbs.dreamstime.com/b/vector-cartoon-truck-car-icon-comic-style-fast-delivery-ser-vector-cartoon-truck-car-icon-comic-style-fast-delivery-service-121267007.jpg" 
+                  alt="Fast Delivery"
+                   className="h-20 w-20"
+                 />
               </div>
               <h4 className="font-bold text-lg">Fast Delivery</h4>
               <p className="text-gray-500 text-sm">Healthy Foods are nutrient-dense foods.</p>
             </div>
           </div>
 
-          <button className="mt-6 bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600">
-            Get started
-          </button>
+          <ModalComponent />
 
-          <div className="flex items-center mt-4">
+          {/* <div className="flex items-center mt-4">
             <img
               src="/path-to-founder-image.jpg"
               alt="Founder"
@@ -68,7 +76,7 @@ const FoodSection = () => {
               <h4 className="text-sm font-bold">Marley Culhane</h4>
               <p className="text-xs text-gray-500">Founder CEO</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       </div>

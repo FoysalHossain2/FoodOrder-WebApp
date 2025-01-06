@@ -7,97 +7,97 @@
         },
         {
             "id": 2,
-            "image": "Pizza.jpeg",
+            "image": "images/Pizza.jpeg",
             "path": "pizza"
         },
         {
             "id": 3,
-            "image": "Noodles.jpeg",
+            "image": "images/Noodles.jpeg",
             "path": "noodles"
         },
         {
             "id": 4,
-            "image": "Pasta.jpeg",
+            "image": "images/Pasta.jpeg",
             "path": "pasta"
         },
         {
             "id": 5,
-            "image": "Paratha.jpeg",
+            "image": "images/Paratha.jpeg",
             "path": "paratha"
         },
         {
             "id": 6,
-            "image": "Biryani_2.jpeg",
+            "image": "images/Biryani_2.jpeg",
             "path": "biryani"
         },
         {
             "id": 7,
-            "image": "Burger.jpeg",
+            "image": "images/Burger.jpeg",
             "path": "burger"
         },
         {
             "id": 8,
-            "image": "Cakes.jpeg",
+            "image": "images/Cakes.jpeg",
             "path": "cakes"
         },
         {
             "id": 9,
-            "image": "Chinese.jpeg",
+            "image": "images/Chinese.jpeg",
             "path": "chinese"
         },
         {
             "id": 10,
-            "image": "Chole_Bature.jpeg",
+            "image": "images/Chole_Bature.jpeg",
             "path": "chole-bature"
         },
         {
             "id": 11,
-            "image": "Dosa.jpeg",
+            "image": "images/Dosa.jpeg",
             "path": "dost"
         },
         {
             "id": 12,
-            "image": "Gulab_Jamun.jpeg",
+            "image": "images/Gulab_Jamun.jpeg",
             "path": "gulab-jamun"
         },
         {
             "id": 13,
-            "image": "Ice_Creams.jpeg",
+            "image": "images/Ice_Creams.jpeg",
             "path": "ice-creams"
         },
         {
             "id": 14,
-            "image": "Idli.jpeg",
+            "image": "images/Idli.jpeg",
             "path": "idli"
         },
         {
             "id": 15,
-            "image": "Khichdi.jpeg",
+            "image": "images/Khichdi.jpeg",
             "path": "khichdi"
         },
         {
             "id": 16,
-            "image": "Poori.jpeg",
+            "image": "images/Poori.jpeg",
             "path": "poori"
         },
         {
             "id": 17,
-            "image": "Pure_Veg.jpeg",
+            "image": "images/Pure_Veg.jpeg",
             "path": "pure-veg"
         },
         {
             "id": 18,
-            "image": "Rolls.jpeg",
+            "image": "images/Rolls.jpeg",
             "path": "rolls"
         },
         {
             "id": 19,
-            "image": "Salad.jpeg",
+            "image": "images/Salad.jpeg",
             "path": "salad"
         },
         {
             "id": 20,
-            "image": "South_Indian_4.jpeg",
+            "image": "images/South_Indian_4.jpeg",
             "path": "south-indian"
         }
     ]
