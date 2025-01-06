@@ -3,6 +3,7 @@ import { RiShoppingBag4Fill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa6";
 import { CgSearch } from "react-icons/cg";
 import Search from "../CommonComponent/Search";
+import {NavLink } from 'react-router'
 
 const Header = () => {
 
@@ -50,10 +51,10 @@ const Header = () => {
           <ul className="hidden md:flex gap-x-10">
             {menu.map((item ,id) => (
               
-            <li key={id} className="cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2">
+            <NavLink to={`/${item.title}`} key={id} className="cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2">
               {item.icon}
               {item.title}
-            </li>
+            </NavLink>
             ))}
           </ul>
 
