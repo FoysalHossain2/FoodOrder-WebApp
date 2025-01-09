@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <section className="lg:py-16 py-6 relative">
@@ -8,7 +10,6 @@ const Banner = () => {
             <div className="py-20 ">
                 <div className="flex items-center justify-center lg:justify-start order-last lg:order-first z-10">
                     <div className="text-center lg:text-start">
-                        <span className="inline-flex py-2 px-4 text-sm text-primary rounded-full bg-primary/20 mb-8 lg:mb-2">#Special Food 🍇</span>
                         <h1 className="lg:text-6xl/normal md:text-5xl/snug text-3xl font-bold text-default-950 capitalize mb-5">We Offer
                             <span className="inline-flex relative">
                                 <span>Delicious</span>
@@ -20,9 +21,9 @@ const Banner = () => {
                           Imagine you don’t need a diet because we provide healthy and delicious food for you!.
                         </p>
                         <div className="flex flex-wrap items-center justify-center lg:justify-normal gap-5 mt-10">
-                            <a  className="py-3 px-10 font-medium text-white bg-button_Color rounded-full hover:bg-orange-400 transition-all cursor-pointer shadow-lg shadow-slate-200">
+                            <Link to={'/shop'}  className="py-3 px-10 font-medium text-white bg-button_Color rounded-full hover:bg-orange-400 transition-all cursor-pointer shadow-lg shadow-slate-200">
                                 Order Now
-                            </a>
+                            </Link>
                             <a href="javascript:void(0)" className="text-primary flex items-center">
                                 <span className="h-14 w-14 rounded-full border-2 border-e-transparent border-yellow-400 flex items-center justify-center me-2 shadow-lg">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="play" className="lucide lucide-play h-6 w-6 fill-primary"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>

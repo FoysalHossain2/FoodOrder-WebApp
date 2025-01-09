@@ -3,7 +3,7 @@ import { RiShoppingBag4Fill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa6";
 import { CgSearch } from "react-icons/cg";
 import Search from "../CommonComponent/Search";
-import {NavLink } from 'react-router'
+import {Link, NavLink } from 'react-router'
 
 const Header = () => {
 
@@ -11,27 +11,32 @@ const Header = () => {
     {
       id: 1,
       title: 'Home',
-      icon: <CiShop />
+      icon: <CiShop />,
+      link: '/'
     },
     {
       id: 1,
       title: 'Shop',
-      icon: <CiShop />
+      icon: <CiShop />,
+      Link: 'shop'
     },
     {
       id: 1,
       title: 'Search',
-      icon: <CgSearch />
+      icon: <CgSearch />,
+      Link: 'search'
     },
     {
       id: 1,
       title: 'Sing In',
-      icon: <FaUser />
+      icon: <FaUser />,
+      link: 'singIn'
     },
     {
       id: 1,
       title: 'Cart',
-      icon: <RiShoppingBag4Fill />
+      icon: <RiShoppingBag4Fill />,
+      cart: 'Cart'
     }
   ]
 
@@ -42,16 +47,18 @@ const Header = () => {
           <div className="flex items-center justify-between  ">
 
           {/* Logo Section */}
-          <div className="flex items-center">
+          <Link to={'/'} className="flex items-center">
             <img src="/logo.svg" alt="Logo" className="h-8 mr-2" />
             <span className="text-xl font-bold text-orange-500">FOOD</span>
-          </div>
+          </Link>
 
           {/* Menu Items */}
           <ul className="hidden md:flex gap-x-10">
             {menu.map((item ,id) => (
               
-            <NavLink to={`/${item.title}`} key={id} className="cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2">
+            <NavLink to={`/${item.title}`} key={id} style={({ isActive }) => ({
+              color: isActive ? "text-orange-400" : "text-black",
+            })} className="cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2">
               {item.icon}
               {item.title}
             </NavLink>

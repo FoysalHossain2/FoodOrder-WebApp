@@ -10,6 +10,7 @@ import CartPage from "./Page/CartPage";
 import SingInPage from "./Page/SingInPage";
 import RootLayout from "./router/RootLayout"
 import SearchPage from "./Page/SearchPage";
+import NotFoundPage from "./Page/NotFoundPage";
 
 
 const router = createBrowserRouter(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         <Route path="/cart" element={<CartPage />} />
         <Route path="/singIn" element={<SingInPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Route>
     </Route>
   )

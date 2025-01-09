@@ -50,17 +50,17 @@ export const Category = [
         image: PizzaCategory
     },
     {
-        id: 4,
+        id: 5,
         title: "Wraps",
         image: Wrap
     },
     {
-        id: 5,
+        id: 6,
         title: "Appetizers",
         image: Appetizers
     },
     {
-        id: 5,
+        id: 7,
         title: "Desserts",
         image: Desserts
     },

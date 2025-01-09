@@ -8,48 +8,38 @@ const SearchPage = () => {
 
   const [Slider, setSlider] = useState(0)
 
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch('https://backenddata-k2ey.onrender.com/category');
-        if (!response.ok) {
-          throw new Error('Failed to fetch categories');
-        }
-        const data = await response.json(); // JSON ডেটা রূপান্তর
-        setCategories(data); // ডেটা সেট করা
-      } catch (error) {
-        setError(error.message); // ত্রুটি সেট করা
-      } finally {
-        setLoading(false); // লোডিং বন্ধ
-      }
-    };
-
-    fetchCategories(); // ফাংশন কল করা
+    fetch("http://localhost:3000/category")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  console.log(products);
 
 
   console.log(Slider);
 
   const HandleNext = () => {
-    if(Slider.length - 8 === setSlider) return false
+    console.log(categories.length );
+    
+    if(categories.length - 8 === Slider) return false
     setSlider( Slider + 3)
   }
 
   const HandlePrevious = () => {
-    setSlider( Slider - 2)
+    console.log(Slider);
+    
+    if(Slider == 0) return false
+    setSlider( Slider - 3) 
   }
   
  
 
   return (
-    <div className="mt-14 mb-[200px] relative">
+    <div className="mt-14 mb-[250px] relative">
         <div className="container mx-auto">
           <div>
             <div className="flex items-center justify-center">
@@ -60,16 +50,16 @@ const SearchPage = () => {
 
               <div className=" mt-16">
                 <div className="">
-                  <button onClick={HandlePrevious} className="text-[25px] bg-gray-300 p-[2px] rounded-full cursor-pointer">
+                  <button onClick={HandlePrevious} className={`text-[25px] bg-orange-300 p-[2px] rounded-full cursor-pointer ${Slider.length === 0 ? "hidden" : "block"}`}>
                     <MdOutlineChevronRight  />
                   </button>
                   <button onClick={HandleNext} className="text-[25px] bg-gray-300 p-[2px] rounded-full mt-1 cursor-pointer">
                     <MdOutlineChevronLeft  />
                   </button>
                 </div>
-                <div className="flex overflow-hidden py-2">
-                  {categories.map((item, id) => (
-                    <div style={{transform: `translateX(-${Slider * 100}%)`}} key={id} className="h-28 w-28 shrink-0 duration-500">
+                <div className="flex overflow-hidden py-3">
+                  {products.map((item, id) => (
+                    <div style={{transform: `translateX(-${Slider * 100}%)`}} key={id} className="h-28 w-28 shrink-0 duration-500 cursor-pointer">
                       <img src={item.image} alt="title"  />
                     </div>
                   ))}
