@@ -5,33 +5,34 @@ import { MdOutlineChevronLeft, MdOutlineChevronRight } from "react-icons/md";
 
 const SearchPage = () => {
 
-
+  const [GetValueofCategory, setGetValueofCategory] = useState("")
   const [Slider, setSlider] = useState(0)
 
-  const [products, setProducts] = useState([]);
+  const [Category, setCategory] = useState([]);
+
+  // HandleGetValue functionality
+  const HandleGetValue = (event,value) => {
+    event.stopPropagation()
+    setGetValueofCategory(value.path);
+    
+  }
+  // console.log("GetValueofCategory",GetValueofCategory);
+  
 
   useEffect(() => {
     fetch("http://localhost:3000/category")
       .then((response) => response.json())
-      .then((data) => setProducts(data))
+      .then((data) => setCategory(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  console.log(products);
-
-
-  console.log(Slider);
-
-  const HandleNext = () => {
-    console.log(categories.length );
-    
-    if(categories.length - 8 === Slider) return false
+// add Slider functionality 
+  const HandleNext = () => {    
+    if(Category.length - 8 === Slider) return false
     setSlider( Slider + 3)
   }
 
-  const HandlePrevious = () => {
-    console.log(Slider);
-    
+  const HandlePrevious = () => {    
     if(Slider == 0) return false
     setSlider( Slider - 3) 
   }
@@ -43,7 +44,7 @@ const SearchPage = () => {
         <div className="container mx-auto">
           <div>
             <div className="flex items-center justify-center">
-                <Search />
+                <Search GetValueofCategory={GetValueofCategory} />
             </div>
             <div className="xl:pl-[150px] lg:pl-16 lg:pr-20 xl:pr-[150px] md:pl-0 mt-10">
               <h1 className="font-DM_Sans text-lg" >Recant Searches</h1>
@@ -58,9 +59,11 @@ const SearchPage = () => {
                   </button>
                 </div>
                 <div className="flex overflow-hidden py-3">
-                  {products.map((item, id) => (
-                    <div style={{transform: `translateX(-${Slider * 100}%)`}} key={id} className="h-28 w-28 shrink-0 duration-500 cursor-pointer">
-                      <img src={item.image} alt="title"  />
+                  {Category.map((item, id) => (
+                    <div  style={{transform: `translateX(-${Slider * 100}%)`}} key={id} className="h-28 w-28 shrink-0 duration-500 cursor-pointer">
+                      <button onClick={(e) => HandleGetValue (e,item)} >
+                        <img src={item.image} alt="title"  />
+                      </button>
                     </div>
                   ))}
                 </div>

@@ -168,7 +168,7 @@ const MenuCategory = () => {
                      </div>
               
                       <div className='bg-orange-100  p-4 mt-16'>
-                          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2  gap-6">
+                          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2  gap-6">
                               {CategoryRelateImage.slice(0,2).map((item, id) => (
                               <div
                                   key={id}

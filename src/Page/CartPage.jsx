@@ -1,7 +1,9 @@
 
 const CartPage = () => {
   return (
-    <div>CartPage</div>
+    <div className="py-10">
+      <div className="container mx-auto"></div>
+    </div>
   )
 }
 

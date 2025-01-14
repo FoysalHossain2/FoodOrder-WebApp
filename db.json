@@ -3,7 +3,7 @@
          {
              "id": 1,
              "image": "images/North_Indian_4.jpeg",
-             "path": "north-indian"
+             "path": "north_indian"
          },
          {
              "id": 2,
@@ -48,17 +48,17 @@
          {
              "id": 10,
              "image": "images/Chole_Bature.jpeg",
-             "path": "chole-bature"
+             "path": "chole_bature"
          },
          {
              "id": 11,
              "image": "images/Dosa.jpeg",
-             "path": "dost"
+             "path": "dosa"
          },
          {
              "id": 12,
              "image": "images/Gulab_Jamun.jpeg",
-             "path": "gulab-jamun"
+             "path": "gulab_jamun"
          },
          {
              "id": 13,
@@ -83,7 +83,7 @@
          {
              "id": 17,
              "image": "images/Pure_Veg.jpeg",
-             "path": "pure-veg"
+             "path": "pure_veg"
          },
          {
              "id": 18,
@@ -98,7 +98,7 @@
          {
              "id": 20,
              "image": "images/South_Indian_4.jpeg",
-             "path": "south-indian"
+             "path": "south_indian"
          }
      ]
  }

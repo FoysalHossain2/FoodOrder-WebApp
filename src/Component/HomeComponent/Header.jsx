@@ -1,44 +1,53 @@
 import { CiShop } from "react-icons/ci";
-import { RiShoppingBag4Fill } from "react-icons/ri";
+import { LiaShoppingBagSolid } from "react-icons/lia";
 import { FaUser } from "react-icons/fa6";
 import { CgSearch } from "react-icons/cg";
 import Search from "../CommonComponent/Search";
 import {Link, NavLink } from 'react-router'
+import { CartContext } from "../../contexts";
+import { useContext } from "react";
 
 const Header = () => {
+
+  const {data, setData} = useContext(CartContext);
+
+  console.log("Header data",data);
 
   const menu = [
     {
       id: 1,
       title: 'Home',
       icon: <CiShop />,
-      link: '/'
+      titles: 'Home'
     },
     {
-      id: 1,
+      id: 2,
       title: 'Shop',
       icon: <CiShop />,
-      Link: 'shop'
+      titles: 'shop'
     },
     {
-      id: 1,
+      id: 3,
       title: 'Search',
       icon: <CgSearch />,
-      Link: 'search'
+      titles: 'Search'
     },
     {
-      id: 1,
-      title: 'Sing In',
+      id: 4,
+      title: 'SingIn',
       icon: <FaUser />,
-      link: 'singIn'
+      titles: 'sing In'
     },
     {
-      id: 1,
+      id: 5,
       title: 'Cart',
-      icon: <RiShoppingBag4Fill />,
-      cart: 'Cart'
+      icon: <LiaShoppingBagSolid />,
+      titles: 'Cart'
     }
   ]
+
+
+  
 
   return (
     <nav className=" px-6 py-4 bg-white shadow-lg lg:block relative">
@@ -58,9 +67,22 @@ const Header = () => {
               
             <NavLink to={`/${item.title}`} key={id} style={({ isActive }) => ({
               color: isActive ? "text-orange-400" : "text-black",
-            })} className="cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2">
-              {item.icon}
-              {item.title}
+            })} className={`cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2`}>
+              <span className={`text-[22px] `}>{item.icon }</span>
+              {item.titles}
+
+             <div className="relative">
+             {data.length > 0 && (
+                  item.titles === 'Cart' 
+                  ?  
+                  <div className="absolute -ml-[68px] -mt-2 h-1 w-1 text-orange-600 font-extrabold text-[15px]">
+                    {data.length}
+                  </div>
+                  : 
+                  <div className="bg-red-500"></div>
+              )}
+             </div>
+              
             </NavLink>
             ))}
           </ul>

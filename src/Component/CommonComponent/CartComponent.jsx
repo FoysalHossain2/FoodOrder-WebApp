@@ -1,43 +1,103 @@
-// import Burger01 from '../../assets/CategoryRelatedImg/Burger01.png'
+import { useContext, useState } from "react";
+import CartDetailsModal from './CartDetailsModal'
+import { CartContext } from "../../contexts";
 
-const CartComponent = ({image ,maxTime ,minTime ,name ,offer ,title }) => {
+// eslint-disable-next-line react/prop-types
+const CartComponent = ({cartData}) => {
+
+
+
+  const [ShowModal, setShowModal] = useState(false);
+  const [SelectedCart, setSelectedCart] = useState(null);
+  const {data, setData} = useContext(CartContext);
+  
+
+  // HandleAddToCart 
+  const HandleAddToCart = (event, cartData) => {
+    event.stopPropagation();
+    const found = data.find((item) => {
+      return item.id === cartData.id
+    })
+
+   
+    if (!found) {
+     setData([...data, cartData])
+  } else {
+      console.error( `The movie ${data.title} has been added to the cart already`);
+  }
+}
+    
+    
+   
+
+
+// Modal open and close functionality implementation
+  const HandleClose = () => {
+    setSelectedCart(null)
+    setShowModal(false)
+  }
+
+  const HandleSelectCart = (cartData) => {
+    setSelectedCart(cartData)
+    setShowModal(true)
+  }
+
+
+
   return (
-    <div className="w-full max-w-sm  bg-white rounded-lg shadow-lg overflow-hidden">
+    <>
+      { ShowModal && (
+        <CartDetailsModal
+         onClose={HandleClose}
+         cartData={SelectedCart}
+        />
+      )
+      }
+
+      <div className="w-full sm:w-full bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="relative">
-        {/* Image Section */}
+          {/* Image Section */}
+          <a className="block" onClick={() =>HandleSelectCart (cartData)}>
+            <div className="hover:scale-110 transition duration-500 cursor-pointer">
+              <img
+                src={cartData.image}
+                alt="Cheesecake"
+                className="w-full h-[250px] object-cover"
+              />
+            </div>
+          </a>
 
-        <div className=" hover:scale-110 transition duration-500">
-          <img
-            src={image}
-            alt="Cheesecake"
-            className="w-full h-[250px] object-cover"
-          />
-        </div>
-        {/* Overlay Badge */}
-        <span className="absolute  bottom-2 left- bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded">
-          {offer}
-        </span>
-
-      </div>
-      {/* Content Section */}
-      <div className="p-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-          <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">
-              4.5 ★
+          {/* Overlay Badge */}
+          <div className="absolute flex justify-between items-center bottom-2 left-0 right-0 px-2">
+            <span className="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded">
+              {cartData.offer}
             </span>
+            <button onClick={(event) => HandleAddToCart (event,cartData)} className="text-green-600 bg-white text-xs font-semibold px-4 py-2 rounded">
+              ADD
+            </button>
+          </div>
         </div>
-        <p className="text-sm text-gray-600">Bakery, Desserts</p>
-        <div className="mt-3 flex items-center justify-between">
-          <p className="text-sm font-semibold text-gray-800">₹200 for one</p>
-          <p className="text-sm text-gray-500">33 min</p>
-        </div>
-        {/* Rating */}
-        <div className="mt-3 flex items-center">
-         
+
+        {/* Content Section */}
+        <div className="p-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-bold text-gray-800">{cartData.title}</h3>
+            <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">
+                {cartData.rating} ★
+              </span>
+          </div>
+          <p className="text-sm text-gray-600">Bakery, Desserts</p>
+          <div className="mt-3 flex items-center justify-between">
+            <p className="text-sm font-semibold text-gray-800">{cartData.price}</p>
+            <p className="text-sm text-gray-500">33 min</p>
+          </div>
+          {/* Rating */}
+          <div className="mt-3 flex items-center">
+          
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

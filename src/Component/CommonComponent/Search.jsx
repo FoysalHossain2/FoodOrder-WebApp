@@ -1,6 +1,18 @@
+import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
-const Search = () => {
+// eslint-disable-next-line react/prop-types
+const Search = ({GetValueofCategory}) => {
+
+  const [ChangeValue, setChangeValue] = useState(GetValueofCategory)
+
+  const HandleChangeValue = (e) => {
+    setChangeValue(e.target.value)
+  }
+
+  console.log( "Search ChangeValue",ChangeValue);
+  
+  
   return (
     <>
         {/* <div className=" lg:max-w-[900px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
@@ -12,16 +24,18 @@ const Search = () => {
             placeholder="search product"
             />
         </div> */}
-           <div className="flex items-center border border-orange-300 lg:max-w-[900px] md:max-w-[800px]  max-md:max-w-[800px] rounded-lg overflow-hidden w-full max-w-md">
-      <input
-        type="text"
-        placeholder="Search for restaurants and food"
-        className="flex-grow px-4 py-3 text-gray-700 focus:outline-none"
-      />
-      <button className="px-4 text-xl text-gray-500 hover:text-gray-700 focus:outline-none">
-       <IoSearchOutline />
-      </button>
-    </div>
+      <div className="flex items-center border border-orange-300 lg:max-w-[900px] md:max-w-[800px]  max-md:max-w-[800px] rounded-lg overflow-hidden w-full max-w-md">
+        <input
+          type="text"
+          placeholder="Search for restaurants and food"
+          className="flex-grow px-4 py-3 text-gray-700 focus:outline-none"
+          onChange={HandleChangeValue}
+          value={ChangeValue}
+        />
+        <button className="px-4 text-xl text-gray-500 hover:text-gray-700 focus:outline-none">
+        <IoSearchOutline />
+        </button>
+     </div>
     </>
   )
 }

@@ -6,7 +6,7 @@ import { Select, SelectAction, SelectContent, SelectGroup, SelectItem,  SelectVa
 
     return (
       <Select className='mt-10'>
-        <SelectAction >
+        <SelectAction className=''>
           <SelectValue placeholder="Sort" />
         </SelectAction>
         <SelectContent>
