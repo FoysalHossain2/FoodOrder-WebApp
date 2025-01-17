@@ -78,7 +78,7 @@ const CartComponent = ({cartData}) => {
               {cartData.offer}
             </span>
             <button onClick={(event) => HandleAddToCart (event,cartData)} className="text-green-600 bg-white text-xs font-semibold px-4 py-2 rounded">
-              ADD
+              {state.EachCartData.length ? <span>IN</span> :  <span>ADD</span> }
             </button>
           </div>
         </div>

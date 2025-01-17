@@ -1,5 +1,5 @@
 import { useContext, useState} from "react";
-import CartComponent from "../Component/CommonComponent/cartComponent"
+import CartComponent from "../Component/CommonComponent/CartComponent.jsx"
 import Sort from "../Component/CommonComponent/Sort";
 import { ProductContext} from '../contexts/index'
 import LoadingSkeleton from '../Component/CommonComponent/LoadingSkeleton'
