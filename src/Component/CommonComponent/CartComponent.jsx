@@ -9,21 +9,26 @@ const CartComponent = ({cartData}) => {
 
   const [ShowModal, setShowModal] = useState(false);
   const [SelectedCart, setSelectedCart] = useState(null);
-  const {data, setData} = useContext(CartContext);
+  const {state, dispatch} = useContext(CartContext);
   
 
   // HandleAddToCart 
   const HandleAddToCart = (event, cartData) => {
     event.stopPropagation();
-    const found = data.find((item) => {
+    const found = state.EachCartData.find((item) => {
       return item.id === cartData.id
     })
 
    
     if (!found) {
-     setData([...data, cartData])
+     dispatch({
+      type: 'ADD_TO_CARD',
+      payload:{
+        ...cartData
+      }
+     })
   } else {
-      console.error( `The movie ${data.title} has been added to the cart already`);
+      console.error( `The movie ${state.EachCartData.title} has been added to the cart already`);
   }
 }
     

@@ -1,7 +1,7 @@
 
 
 // eslint-disable-next-line react/prop-types
-const CartDetailsModal = ({cartData, onClose}) => {
+const  CartDetailsModal = ({cartData, onClose}) => {
   const {image  ,offer ,title ,rating} = cartData;
 
   return (
@@ -10,7 +10,15 @@ const CartDetailsModal = ({cartData, onClose}) => {
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[484px] p-4 max-h-[100vh] overflow-auto"
       >
-        <div className="bg-white shadow-md dark:bg-[#12141D] rounded-2xl overflow-hidden">
+        <div className="bg-white shadow-md dark:bg-[#12141D] rounded-2xl overflow-hidden p-10">
+          {/* onClone button */}
+          <div className="flex justify-between items-center ">
+              <div >
+              </div>
+            <button onClick={onClose}>&times;</button>
+          </div>
+           {/* onClone button */}
+
          <div className="w-full sm:w-full bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative">
                     {/* Image Section */}

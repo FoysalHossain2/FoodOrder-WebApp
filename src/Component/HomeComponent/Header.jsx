@@ -9,38 +9,36 @@ import { useContext } from "react";
 
 const Header = () => {
 
-  const {data, setData} = useContext(CartContext);
-
-  console.log("Header data",data);
+  const {state} = useContext(CartContext);
 
   const menu = [
     {
       id: 1,
-      title: 'Home',
+      title: 'home',
       icon: <CiShop />,
       titles: 'Home'
     },
     {
       id: 2,
-      title: 'Shop',
+      title: 'shop',
       icon: <CiShop />,
       titles: 'shop'
     },
     {
       id: 3,
-      title: 'Search',
+      title: 'search',
       icon: <CgSearch />,
       titles: 'Search'
     },
     {
       id: 4,
-      title: 'SingIn',
+      title: 'singIn',
       icon: <FaUser />,
       titles: 'sing In'
     },
     {
       id: 5,
-      title: 'Cart',
+      title: 'cart',
       icon: <LiaShoppingBagSolid />,
       titles: 'Cart'
     }
@@ -72,11 +70,11 @@ const Header = () => {
               {item.titles}
 
              <div className="relative">
-             {data.length > 0 && (
+             {state.EachCartData.length > 0 && (
                   item.titles === 'Cart' 
                   ?  
                   <div className="absolute -ml-[68px] -mt-2 h-1 w-1 text-orange-600 font-extrabold text-[15px]">
-                    {data.length}
+                    {state.EachCartData.length}
                   </div>
                   : 
                   <div className="bg-red-500"></div>
