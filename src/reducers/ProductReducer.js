@@ -1,6 +1,8 @@
 
 const initialState = {
     EachCartData: [],
+    SortDate: "",
+    searchQuery: ""
 } 
 
 const cartReducer = (state, action) => {
@@ -18,6 +20,19 @@ const cartReducer = (state, action) => {
             ...state,
             EachCartData: state.EachCartData.filter((cart) => cart.id !== action.payload.id)
         }
+
+        case "SEARCH":
+
+        return {
+            ...state, searchQuery: action.payload
+        }
+
+        case "SORT":
+
+        return {
+            ...state, SortDate: action.payload
+        }
+
         
         default: state;
             break;

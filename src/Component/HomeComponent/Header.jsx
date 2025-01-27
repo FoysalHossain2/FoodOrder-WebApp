@@ -1,127 +1,146 @@
-import { CiShop } from "react-icons/ci";
-import { LiaShoppingBagSolid } from "react-icons/lia";
-import { FaUser } from "react-icons/fa6";
-import { CgSearch } from "react-icons/cg";
+import { useContext, useEffect, useState } from "react";
+import { FaUser } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 import Search from "../CommonComponent/Search";
-import {Link, NavLink } from 'react-router'
-import { CartContext } from "../../contexts";
-import { useContext } from "react";
+import FoodOrder from '../../assets/FoodOrder.png'
+import { LiaShoppingBagSolid } from "react-icons/lia";
+import { CartContext, ProductContext } from "../../contexts";
+import { useLocation } from "react-router-dom";
+import Headroom from 'react-headroom'
+import { FaRegCircleUser } from "react-icons/fa6";
 
 const Header = () => {
 
   const {state} = useContext(CartContext);
 
-  const menu = [
-    {
-      id: 1,
-      title: 'home',
-      icon: <CiShop />,
-      titles: 'Home'
-    },
-    {
-      id: 2,
-      title: 'shop',
-      icon: <CiShop />,
-      titles: 'shop'
-    },
-    {
-      id: 3,
-      title: 'search',
-      icon: <CgSearch />,
-      titles: 'Search'
-    },
-    {
-      id: 4,
-      title: 'singIn',
-      icon: <FaUser />,
-      titles: 'sing In'
-    },
-    {
-      id: 5,
-      title: 'cart',
-      icon: <LiaShoppingBagSolid />,
-      titles: 'Cart'
-    }
-  ]
+  const location = useLocation()
 
 
+  const [SearchTerm, setSearchTerm] = useState("")
   
 
+
   return (
-    <nav className=" px-6 py-4 bg-white shadow-lg lg:block relative">
-      <div className="container mx-auto">
-        <div className="sm:hidden lg:block">
-          <div className="flex items-center justify-between  ">
+    <>
+      {/*=========== Header part =*/}
+      <Headroom className="z-50">
+        <div
+          className={`lg:py-[10px] py-2 bg-white
+         `}
+        >
+          <div className="container mx-auto ">
+            {/* --- for lg device ---  */}
+            <div className="lg:block hidden">
+              <div
+                className="flex lg:items-center  justify-between  
+              max-sm:flex-col  lg:flex-row 
+              max-sm:px-2 max-md:px-2 md:px-2 lg:px-0 
+            "
+              >
+                  <div className="flex items-center">
+                  <Link to={'/'} className="flex items-center">
+                    <img src={FoodOrder} alt="Logo" className="h-12 mr-2" />
+                  </Link>
+                </div>
+                
+                {/*========== Search option ==========*/}
+                  <div className="lg:max-w-[700px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
+                <div>
+                {location.pathname === "/shop" && (
 
-          {/* Logo Section */}
-          <Link to={'/'} className="flex items-center">
-            <img src="/logo.svg" alt="Logo" className="h-8 mr-2" />
-            <span className="text-xl font-bold text-orange-500">FOOD</span>
-          </Link>
-
-          {/* Menu Items */}
-          <ul className="hidden md:flex gap-x-10">
-            {menu.map((item ,id) => (
-              
-            <NavLink to={`/${item.title}`} key={id} style={({ isActive }) => ({
-              color: isActive ? "text-orange-400" : "text-black",
-            })} className={`cursor-pointer text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2`}>
-              <span className={`text-[22px] `}>{item.icon }</span>
-              {item.titles}
-
-             <div className="relative">
-             {state.EachCartData.length > 0 && (
-                  item.titles === 'Cart' 
-                  ?  
-                  <div className="absolute -ml-[68px] -mt-2 h-1 w-1 text-orange-600 font-extrabold text-[15px]">
-                    {state.EachCartData.length}
+                  <Search className="relative"  />
+                )}
+                </div>
                   </div>
-                  : 
-                  <div className="bg-red-500"></div>
-              )}
-             </div>
-              
-            </NavLink>
-            ))}
-          </ul>
+                {/*========== Search option ==========*/}
 
+                {/* ========== singIn , login & other option ========== */}
+                <div className=" max-sm:hidden md:hidden max-md:hidden lg:block ">
+                  <div className="flex items-center gap-x-4 ">
 
-          </div>
-        </div>
-    
+                    <div>
+                      <NavLink to={`/singin`} className={'text-[18px] font-DM_Sans'}>
+                        Login
+                      </NavLink>
+                    </div>
 
+                    <div className="border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block"></div>
 
-        {/* responsive for mobile  */}
-        <div className="lg:hidden">
-          <div className="flex items-center justify-between gap-x-4 ">
+                    {/* --------------- login part ------------------*/}
+                    <div>
+                      <NavLink to={`/singup`} className={'text-[18px] font-DM_Sans'} >
+                        Sing Up
+                      </NavLink>
+                    </div>
+                    {/* --------------- login part ------------------*/}
 
-            {/* Logo Section */}
-            <div className="flex items-center">
-              {/* <img src="/logo.svg" alt="Logo" className="h-8 mr-2" /> */}
-              <span className="text-xl font-bold text-orange-500">FoodOrd</span>
-            </div>
+                    <div className="border-r border-gray-300 h-5 w-[2px]  "></div>
+
+                    {/*  AddToCart Part =========== */}
+                    <div>
+                  <NavLink to={`/Cart`} >
+                  <LiaShoppingBagSolid className="text-[28px]" />
+                  <div className="relative">
+                  {state.EachCartData.length > 0 && (
+                        'Cart' 
+                        ?  
+                        <div className="absolute ml-[10px] -mt-[21px] h-1 w-1 text-red-400 font-semibold text-[13px]">
+                          {state.EachCartData.length}
+                        </div>
+                        : 
+                        <div className="bg-red-500"></div>
+                    )}
+                  </div>
+                    
+                  </NavLink>
+                </div>
             
-            {/* search option */}
-            <Search />
+                    {/*  AddToCart Part =========== */}
+                  </div>
+                </div>
+                {/* ===== sing in , login & other option ===== */}
+              </div>
+            </div>
+            {/* --- for lg device ---  */}
+
+
+            {/* === for md, sm device === */}
+            <div className="lg:hidden block px-4 md:px-4 lg:px-0">
+              <div
+                className="flex items-center  justify-between  
+              max-sm:px-2 max-md:px-2 md:px-2 lg:px-0
+            "
+              >
+                  <div className="flex items-center">
+                  <Link to={'/'} className="flex items-center">
+                    <img src={FoodOrder} alt="Logo" className="h-14 mr-2" />
+                  </Link>
+                </div>
+
+                <div className="text-[30px]">
+                   <FaRegCircleUser />
+                </div>
+              </div>
+
+              {/*========== Search option ==========*/}
+              <div className=" max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
+                  <div>
+                  {location.pathname === "/shop" && (
+
+                    <Search className="relative"  />
+                  )}
+                  </div>
+                </div>
+              {/*========== Search option ==========*/}
+            </div>
+            {/* === for md, sm device === */}
+
           </div>
         </div>
-
-          {/* <div className="absolute bottom-0 left-0 top-[800px] bg-white">
-            <ul className=" flex gap-x-10">
-              {menu.map((item ,id) => (
-                
-              <li key={id} className="text-[18px] font-medium font-DM_Sans text-gray-700 hover:text-orange-500 flex items-center gap-x-2">
-                {item.icon}
-                
-              </li>
-              ))}
-            </ul>
-          </div> */}
-
-      </div>
-      </nav>
-
+      </Headroom>
+      {/*=========== Header part =*/}
+    </>
   );
 };
 
-export default Header;      
+export default Header;

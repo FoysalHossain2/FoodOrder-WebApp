@@ -13,16 +13,31 @@ const CartPage = () => {
       <div className="container mx-auto">
         {state.EachCartData.length > 0 ?
         (
-
-          <div className='flex justify-between '> 
-            <div className='pl-8'>
-              <CartLeftPart />
-              <PaymentMethod />
-            </div>
-            <div>
-              <CartRightPart />
+          <>
+          {/* for lg device */}
+          <div className='lg:block hidden'>
+            <div className='flex justify-between '> 
+              <div className='pl-8'>
+                <CartLeftPart />
+                <PaymentMethod />
+              </div>
+              <div>
+                <CartRightPart />
+              </div>
             </div>
           </div>
+
+            {/* for sm, md device */}
+            <div className='flex flex-col justify-between lg:hidden sm:block'> 
+              <div>
+                <CartRightPart />
+              </div>
+              <div className=' mt-5'>
+                <CartLeftPart />
+                <PaymentMethod />
+              </div>
+            </div>
+          </>
         )
         :
         (

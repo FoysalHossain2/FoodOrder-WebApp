@@ -118,7 +118,7 @@ const MenuCategory = () => {
                   <div className=" sm:flex sm:flex-row md:flex md:flex-row lg:flex items-center gap-x-8">
                       <div className="w-[25%] h-[350px] overflow-hidden overflow-y-scroll ">
                           {Category.map((item, id) => (
-                              <button onClick={HandleClick} key={id} className=' flex items-center  gap-x-7 py-3 mt-5 hover:bg-green-500 px-2 rounded-full cursor-pointer'>
+                              <button onClick={HandleClick} key={id} className=' flex items-center  gap-x-7 py-3 mt-5 px-2 w-[170px]  rounded-full hover:shadow-2xl transition-shadow duration-300 cursor-pointer'>
                                   <img src={item.image} alt="" className='h-10 w-10 bg-white rounded-full' />
                                   <p>{item.title}</p>
                               </button>
@@ -159,7 +159,7 @@ const MenuCategory = () => {
                           {Category.map((item, id) => (
                             <div key={id} className='px-10'>
 
-                              <div  className='  flex items-center  gap-x-3 py-3 mt-5 hover:bg-green-500 px-2 rounded-full cursor-pointer'>
+                              <div  className='  flex items-center  gap-x-3 py-3 mt-5  px-2 w-[170px]  rounded-full hover:shadow-2xl transition-shadow duration-300  cursor-pointer'>
                                   <img src={item.image} alt="" className='h-12 w-12 bg-white rounded-full' />
                                   <p className='text-[20px]'>{item.title}</p>
                               </div>

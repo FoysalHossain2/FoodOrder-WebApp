@@ -1,6 +1,6 @@
 import React, {  useReducer, useState } from 'react'
 import { CartContext } from '../contexts'
-import { cartReducer, initialState } from '../reducers/CartReducer'
+import { cartReducer, initialState } from '../reducers/ProductReducer'
 
 const CartProvider = ({children}) => {
 

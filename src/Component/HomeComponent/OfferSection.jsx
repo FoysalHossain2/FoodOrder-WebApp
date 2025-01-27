@@ -3,7 +3,7 @@ const OfferSection = () => {
     <div> 
      <section className="lg:py-28 py-10 relative bg-no-repeat bg-cover bg-[url(../images/home/offer-bg.png)]">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container">
+        <div className="container mx-auto">
             <div className="relative lg:w-1/2 w-full">
                 <h4 className="font-handrawn text-2xl text-yellow-500 mb-6">Special Combo Offer</h4>
                 <h2 className="text-4xl font-semibold text-white mb-8">We make best Food in your town</h2>
