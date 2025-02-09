@@ -1,4 +1,6 @@
 
+
+
 const initialState = {
     EachCartData: [],
     SortDate: "",
@@ -19,6 +21,12 @@ const cartReducer = (state, action) => {
         return {
             ...state,
             EachCartData: state.EachCartData.filter((cart) => cart.id !== action.payload.id)
+        }
+
+        case "INCREMENT": 
+
+        return {
+            
         }
 
         case "SEARCH":

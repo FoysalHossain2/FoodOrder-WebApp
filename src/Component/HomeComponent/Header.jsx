@@ -8,16 +8,44 @@ import { CartContext, ProductContext } from "../../contexts";
 import { useLocation } from "react-router-dom";
 import Headroom from 'react-headroom'
 import { FaRegCircleUser } from "react-icons/fa6";
+import BottomNavbar from '../CommonComponent/common/BottomNavbar'
+import Addmin from "../CommonComponent/common/Addmin";
 
 const Header = () => {
 
+  const [ShowAdMin, setShowAdMin] = useState(false)
   const {state} = useContext(CartContext);
-
   const location = useLocation()
 
 
-  const [SearchTerm, setSearchTerm] = useState("")
+  const [PositionStrick, setPositionStrick] = useState(false)
   
+  // Scroll Event Listener ব্যবস্থাপনা
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 20) {
+        setPositionStrick(true);
+        console.log(PositionStrick, alert);
+      } else {
+        setPositionStrick(false)
+      }
+    };
+
+
+    // Scroll Event Listener যোগ করুন
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup function: Scroll Event Listener সরিয়ে ফেলুন
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+  // HandleClick
+  const HandleClick = () => {
+    setShowAdMin(!ShowAdMin)
+  }
 
 
   return (
@@ -25,9 +53,10 @@ const Header = () => {
       {/*=========== Header part =*/}
       <Headroom className="z-50">
         <div
-          className={`lg:py-[10px] py-2 bg-white
-         `}
+          className={`lg:py-[10px] py-2 bg-white `}
         >
+        
+        
           <div className="container mx-auto ">
             {/* --- for lg device ---  */}
             <div className="lg:block hidden">
@@ -45,12 +74,12 @@ const Header = () => {
                 
                 {/*========== Search option ==========*/}
                   <div className="lg:max-w-[700px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
-                <div>
-                {location.pathname === "/shop" && (
+                    <div>
+                    {location.pathname === "/shop" && (
 
-                  <Search className="relative"  />
-                )}
-                </div>
+                      <Search className="relative"  />
+                    )}
+                    </div>
                   </div>
                 {/*========== Search option ==========*/}
 
@@ -105,7 +134,7 @@ const Header = () => {
 
 
             {/* === for md, sm device === */}
-            <div className="lg:hidden block px-4 md:px-4 lg:px-0">
+            <div className="lg:hidden block px-4 md:px-4 lg:px-0 md:shadow-none shadow-lg">
               <div
                 className="flex items-center  justify-between  
               max-sm:px-2 max-md:px-2 md:px-2 lg:px-0
@@ -118,26 +147,40 @@ const Header = () => {
                 </div>
 
                 <div className="text-[30px]">
-                   <FaRegCircleUser />
+                   <button onClick={HandleClick}>
+                    <FaRegCircleUser />
+                   </button>
+                   {ShowAdMin && (
+
+                    <div className="absolute">
+                      <Addmin />
+                    </div>
+                   )}
                 </div>
               </div>
-
-              {/*========== Search option ==========*/}
-              <div className=" max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
-                  <div>
-                  {location.pathname === "/shop" && (
-
-                    <Search className="relative"  />
-                  )}
-                  </div>
-                </div>
-              {/*========== Search option ==========*/}
             </div>
             {/* === for md, sm device === */}
 
           </div>
-        </div>
+          </div>
       </Headroom>
+      
+            {/*========== Search option ==========*/}
+            <div className="lg:hidden md:hidden block">
+              <div className={`max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0 ${PositionStrick ? ' fixed z-50' : ''}`}>
+              {location.pathname === "/shop" && (
+                <div className="  ">
+
+                <Search className="relative"  />
+                </div>
+              )}
+            </div>
+          </div>
+          {/*========== Search option ==========*/}
+
+          <div className="lg:hidden block">
+            <BottomNavbar />
+          </div>
       {/*=========== Header part =*/}
     </>
   );

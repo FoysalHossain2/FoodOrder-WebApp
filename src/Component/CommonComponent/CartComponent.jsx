@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import CartDetailsModal from './CartDetailsModal'
 import { CartContext } from "../../contexts";
 
+
 // eslint-disable-next-line react/prop-types
 const CartComponent = ({cartData}) => {
 
@@ -47,6 +48,8 @@ const CartComponent = ({cartData}) => {
     setShowModal(true)
   }
 
+  const isInCart = state.EachCartData.some((item) => item.id === cartData.id)
+
 
 
   return (
@@ -78,7 +81,7 @@ const CartComponent = ({cartData}) => {
               {cartData.offer}
             </span>
             <button onClick={(event) => HandleAddToCart (event,cartData)} className="text-green-600 bg-white text-xs font-semibold px-4 py-2 rounded">
-              {state.EachCartData.length ? <span>IN</span> :  <span>ADD</span> }
+              {isInCart ? <span>IN</span> :  <span>ADD</span> }
             </button>
           </div>
         </div>

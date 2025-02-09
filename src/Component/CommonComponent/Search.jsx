@@ -21,11 +21,11 @@ const Search = () => {
   
   return (
     <div className="px-4 md:px-4 lg:px-0">
-       <div className="shadow-md flex items-center border border-orange-100 lg:max-w-[600px] md:max-w-[800px]  max-md:max-w-[800px] rounded-md overflow-hidden w-full ">
+       <div className="shadow-md flex items-center border border-orange-100 lg:max-w-[600px] md:max-w-[800px]  max-md:max-w-[800px] lg:rounded-lg rounded-full overflow-hidden w-full ">
           <input
             type="text"
             placeholder="Search for restaurants and food"
-            className="flex-grow px-4 lg:py-[9px] md:py-4 py-2 text-gray-700 focus:outline-none"
+            className="flex-grow px-4 lg:py-[10px] md:py-4 py-3 text-gray-700 focus:outline-none"
             onChange={handleChange}
           />
             <button className="px-4 text-xl focus:outline-none">

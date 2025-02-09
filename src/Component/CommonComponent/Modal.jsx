@@ -20,15 +20,18 @@ export const ModalComponent = () => {
             Get started
           </button>
       </ModalAction>
-      <ModalContent className="max-w-[20rem] lg:max-w-[26rem]">
+      <ModalContent className="max-w-[20rem] lg:max-w-[20rem]">
         <ModalHeader className="mb-6 flex flex-col items-center justify-center space-y-3">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full border border-metal-100 bg-metal-50 text-metal-600 dark:border-metal-800 dark:bg-metal-800 dark:text-white">
+          {/* <div className="flex h-20 w-20 items-center justify-center rounded-full border border-metal-100 bg-metal-50 text-metal-600 dark:border-metal-800 dark:bg-metal-800 dark:text-white">
             <Check size={60} />
-          </div>
+          </div> */}
           <div className="space-y-1 text-center">
-            <ModalTitle>Payment Successful</ModalTitle>
+            <ModalTitle className='text-orange-500'>What kind of food do you like</ModalTitle>
             <ModalDescription>
-              Your document has unsaved changes. Discard or save them as a new page to continue.
+              <div  className='flex items-center justify-center gap-9 mt-4'>
+                <button className=''>Fast Food</button>
+                <button>Healthy Food</button>
+              </div>
             </ModalDescription>
           </div>
         </ModalHeader>

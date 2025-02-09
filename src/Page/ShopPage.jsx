@@ -86,10 +86,10 @@ console.log(ProductData.categoryItem);
              {/* CategoryItem */}
              < CategoryItem />
 
-             <ShopTop />
+             {/* <ShopTop /> */}
               {productData ? 
               (
-                <div  className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10">
+                <div  className="mt-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10">
                 {productData.map((item, id) => (
                   <div key={id} >
       

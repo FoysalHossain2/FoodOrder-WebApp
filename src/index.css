@@ -42,7 +42,22 @@
  
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
+.container {
+  position: relative;
+  overflow: visible;
+}
+
+.Psticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
 /* @layer components {
   .form-control {

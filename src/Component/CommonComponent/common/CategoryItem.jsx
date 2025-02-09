@@ -45,7 +45,7 @@ const CategoryItem = () => {
 
               <div className="flex items-center">
     
-                  <button onClick={HandlePrevious} className={`z-50 text-[25px] w-[2px] h-1 mt-1 cursor-pointer `}>
+                  <button onClick={HandlePrevious} className={`z-40 text-[25px] w-[2px] h-1 mt-1 cursor-pointer `}>
                     <MdOutlineChevronRight className="bg-slate-200  rounded-full -ml-3"  />
                   </button>
                   
@@ -59,7 +59,7 @@ const CategoryItem = () => {
                     </div>
                   ))}
                 </div>
-                <button onClick={HandleNext} className="text-[25px] bg-orange-300 w-[2px] h-1 rounded-full mt-1 cursor-pointer z-50 m-">
+                <button onClick={HandleNext} className="text-[25px] bg-orange-300 w-[2px] h-1 rounded-full mt-1 cursor-pointer z-40 m-">
                     <MdOutlineChevronLeft className="bg-slate-200  rounded-full -ml-3"   />
                   </button>
               </div>

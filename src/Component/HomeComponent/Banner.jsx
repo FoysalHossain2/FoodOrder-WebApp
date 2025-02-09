@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import BannerCart from '../HomeComponent/BannerCart'
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
     <section className="lg:py-16 py-6 relative">
-      <div className="container mx-auto">
     <div className="absolute inset-0 blur-[60px] bg-gradient-to-l from-orange-600/20 via-orange-600/5 to-orange-600/0"></div>
+      <div className="container mx-auto">
     <div className="container relative">
         <div className="grid lg:grid-cols-2 items-center">
             <div className="py-20 ">
@@ -21,13 +23,21 @@ const Banner = () => {
                           Imagine you don’t need a diet because we provide healthy and delicious food for you!.
                         </p>
                         <div className="flex flex-wrap items-center justify-center lg:justify-normal gap-5 mt-10">
-                            <Link to={'/shop'}  className="py-3 px-10 font-medium text-white bg-button_Color rounded-full hover:bg-orange-400 transition-all cursor-pointer shadow-lg shadow-slate-200">
+                                <Link to={'/shop'} >
+                            <motion.button
+                                className="py-3 px-10 font-medium text-white bg-button_Color rounded-full hover:bg-orange-400 transition-all cursor-pointer shadow-lg shadow-slate-200"
+                                whileTap={{ scale: 0.8, transition: { yoyo: Infinity } }}
+                            >
                                 Order Now
-                            </Link>
-                            <a href="javascript:void(0)" className="text-primary flex items-center">
-                                <span className="h-14 w-14 rounded-full border-2 border-e-transparent border-yellow-400 flex items-center justify-center me-2 shadow-lg">
+                            </motion.button>
+                                </Link>
+                            <a  className="text-primary flex items-center">
+                                <motion.button
+                                    className="h-14 w-14 rounded-full border-2 border-e-transparent border-yellow-400 flex items-center justify-center me-2 shadow-lg"
+                                    whileTap={{ scale: 0.8, transition: { yoyo: Infinity } }}
+                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="play" className="lucide lucide-play h-6 w-6 fill-primary"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                </span>
+                                </motion.button>
                                 <span className="font-semibold">How to Order</span>
                             </a>
                         </div>
@@ -55,7 +65,7 @@ const Banner = () => {
             </div>
 
             <div className="relative flex items-center justify-center py-20">
-                <span className="absolute top-0 start-0 text-3xl -rotate-[40deg]">🔥</span>
+                {/* <span className="absolute top-0 start-0 text-3xl -rotate-[40deg]">🔥</span> */}
                 <span className="absolute top-0 end-[10%] -rotate-12 h-14 w-14 inline-flex items-center justify-center bg-yellow-400 text-white rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="clock-3" className="lucide lucide-clock-3 h-6 w-6"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16.5 12"></polyline></svg>
                 </span>
@@ -77,22 +87,22 @@ const Banner = () => {
                         </div>
                     </div>
                 </div>
-                <span className="absolute bottom-0 end-0 -rotate-12 h-4 w-4 inline-flex items-center justify-center bg-primary text-white rounded-full"></span>
-                <span className="absolute -bottom-16 end-1/3 text-3xl">🔥</span>
+                {/* <span className="absolute -bottom-16 end-1/3 text-3xl">🔥</span> */}
                 <div className="absolute bottom-0 start-0">
-                    <div className="flex items-center gap-2 p-2 pe-6 bg-default-50 rounded-full shadow-lg">
+                    {/* <BannerCart /> */}
+                    <div className="flex items-center gap-2 py-8 px-8 pe-6 bg-default-50 rounded-full shadow-lg">
                         <span className="inline-flex items-center justify-center h-16 w-16 bg-primary/20 rounded-full">
-                        <img src="./Yum - Multipurpose Food Tailwind CSS Template_files/burger-1-0c3ba5a6.svg" className="h-10 w-10 rounded-full" />
+                        <img src="./Yum - Multipurpose Food Tailwind CSS Template_files/burger-1-0c3ba5a6.svg" className="h-14 w-14 rounded-full" />
                         </span>
                         <div className="">
                             <h6 className="text-sm font-medium text-default-900">MCD Veg Burger</h6>
-                            <span className="inline-flex gap-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-default-200 fill-default-200"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                            </span>
+                                <span className="inline-flex gap-0.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-yellow-400 fill-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-lucide="star" className="lucide lucide-star h-3 w-3 text-default-200 fill-default-200"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </span>
                             <h6 className="text-sm font-medium text-default-900"><span className="text-sm text-primary">$</span> 8.14</h6>
                         </div>
                     </div>

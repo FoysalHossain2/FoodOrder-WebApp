@@ -28,7 +28,7 @@ import { sortData } from "../../../utils/helper";
       <div>
           <button
               type="button"
-              className="border inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-[11px] text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 transition-all"
+              className="border inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-[11px] text-sm  hover:text-gray-500 focus:text-gray-700 transition-all"
               id="menu-button"
               aria-expanded={IsOpen}
               aria-haspopup="true"
