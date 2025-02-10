@@ -26,9 +26,9 @@ const BottomNavbar = () => {
            </NavLink>
         </div>
         {/* Categories */}
-        <div className="flex flex-col items-center">
+        {/* <div className="flex flex-col items-center">
           <NavLink to={'/WishList'} className="text-[24px] cursor-pointer text-gray-500"> <FaRegHeart /> </NavLink>
-        </div>
+        </div> */}
       </div>
     </div>
   );

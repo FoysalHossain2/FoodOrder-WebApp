@@ -46,10 +46,12 @@ console.log(ProductData.categoryItem);
       onClose={HandleClose}
     />
     )}
-      <div className="pt-[50px] pb-[100px] px-4 md:px-4 lg:px-0">
+      <div className="pt-[30px] pb-[100px] px-4 md:px-4 lg:px-0">
         <div className="container mx-auto">
 
-          <BreadCramp />
+          <div className="py-2 pb-10 lg:block hidden"> 
+           <BreadCramp />
+          </div>
 
 
           {/* --- filter option --- */}

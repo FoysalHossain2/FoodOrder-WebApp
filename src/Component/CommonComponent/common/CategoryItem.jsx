@@ -37,7 +37,7 @@ const CategoryItem = () => {
     <div className="mt-4 mb-10 relative px-2 lg:px-0">
         <div className="container mx-auto">
           <div className="mt-10 ">
-            <h1 className="text-3xl font-DM_Sans z-[-2]">
+            <h1 className="lg:text-3xl text-xl font-DM_Sans z-[-2]">
               Choose on your Favorite Dish
             </h1>
 
