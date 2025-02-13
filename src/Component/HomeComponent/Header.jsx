@@ -14,33 +14,8 @@ import Addmin from "../CommonComponent/common/Addmin";
 const Header = () => {
 
   const [ShowAdMin, setShowAdMin] = useState(false)
-  const {state} = useContext(CartContext);
+  const {state, dispatch} = useContext(CartContext);
   const location = useLocation()
-
-
-  const [PositionStrick, setPositionStrick] = useState(false)
-  
-  // Scroll Event Listener ব্যবস্থাপনা
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 20) {
-        setPositionStrick(true);
-        console.log(PositionStrick, alert);
-      } else {
-        setPositionStrick(false)
-      }
-    };
-
-
-    // Scroll Event Listener যোগ করুন
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup function: Scroll Event Listener সরিয়ে ফেলুন
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
 
   // HandleClick
   const HandleClick = () => {
@@ -61,7 +36,7 @@ const Header = () => {
             {/* --- for lg device ---  */}
             <div className="lg:block hidden">
               <div
-                className="flex lg:items-center  justify-between  
+                className="flex lg:items-center justify-between  
               max-sm:flex-col  lg:flex-row 
               max-sm:px-2 max-md:px-2 md:px-2 lg:px-0 
             "
@@ -165,18 +140,7 @@ const Header = () => {
           </div>
       </Headroom>
       
-            {/*========== Search option ==========*/}
-            <div className="lg:hidden md:hidden block">
-              <div className={`max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0 ${PositionStrick ? ' fixed z-50' : ''}`}>
-              {location.pathname === "/shop" && (
-                <div className="  ">
-
-                <Search className="relative"  />
-                </div>
-              )}
-            </div>
-          </div>
-          {/*========== Search option ==========*/}
+           
 
           <div className="lg:hidden block">
             <BottomNavbar />

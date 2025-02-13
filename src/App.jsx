@@ -22,7 +22,7 @@ const router = createBrowserRouter(
         <Route path="/cart" element={<CartPage />} />
         <Route path="/singin" element={<SingInPage />} />
         <Route path="/singup" element={<SingUpPage />} />
-        <Route path="/search" element={<SearchPage />} />
+        {/* <Route path="/search" element={<SearchPage />} /> */}
         <Route path="/*" element={<NotFoundPage />} />
       </Route>
     </Route>

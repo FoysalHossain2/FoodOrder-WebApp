@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import BannerCart from '../HomeComponent/BannerCart'
 import { motion } from "framer-motion";
+import ProductGrid from '../CommonComponent/common/ProductGrid'
 
 const Banner = () => {
   return (
@@ -111,6 +112,7 @@ const Banner = () => {
 
                 <img src="./Yum - Multipurpose Food Tailwind CSS Template_files/hero-f578fbc8.png" className="mx-auto" />
             </div>
+
         </div>
     </div>
 </div>

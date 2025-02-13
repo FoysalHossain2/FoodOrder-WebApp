@@ -25,7 +25,7 @@ const sortData = (array, direction) => {
 }
 
 const searchData = (array, searchTerm) => {
-    if (!searchTerm) searchTerm = ""; // searchTerm undefined বা null হলে খালি স্ট্রিং সেট করুন
+    if (!searchTerm) searchTerm = ""; 
 
     return [...array].filter((item) => 
         item.title && typeof item.title === "string" && 

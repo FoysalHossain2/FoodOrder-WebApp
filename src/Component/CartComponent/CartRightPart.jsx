@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { CartContext } from '../../contexts';
+import ItemInOrDecrementButton from '../CommonComponent/common/ItemInOrDecrementButton'
 
 const CartRightPart = () => {
 
@@ -33,13 +34,11 @@ const CartRightPart = () => {
               alt="Dish"
               className="w-9 h-9 rounded-lg mr-4"
             />
-              <p className="font-medium pr-[7px] text-[14px] ">Monalisa  </p>
-              <div className="flex items-center space-x-3 border border-green-600 px-2 py-[2px]">
-                <button className=" cursor-pointer text-[17px] border-gray-300 rounded"> <LuMinus /> </button>
-                <span>2</span>
-                <button className=" cursor-pointer text-[17px] border-gray-300 rounded"> <LuPlus /> </button>
-              </div>
-              <p className="text-right mt-2 font-semibold">₹676</p>
+              <p className="font-medium pr-[7px] text-[14px] w-24 ">{item.category}</p>
+             <div>
+              <ItemInOrDecrementButton />
+             </div>
+              <p className="text-right mt-2 font-semibold">{item.price}tk</p>
             </div>
           ))}
         </div>

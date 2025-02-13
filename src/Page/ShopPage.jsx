@@ -18,7 +18,27 @@ const ShopPage = () => {
   const [SelectFilter, setSelectFilter] = useState(null)
   const {ProductData, Loading, Error} = useContext(ProductContext)
   const {state, dispatch} = useContext(CartContext);
-console.log(ProductData.categoryItem);
+
+      // Scroll Event Listener ব্যবস্থাপনা
+      // useEffect(() => {
+      //   const handleScroll = () => {
+      //     if (window.scrollY >= 20) {
+      //       setPositionStrick(true);
+      //       console.log(PositionStrick, alert);
+      //     } else if(window.scrollY <= 20) {
+      //       setPositionStrick(true)
+      //     }
+      //   };
+    
+    
+      //   // Scroll Event Listener যোগ করুন
+      //   window.addEventListener('scroll', handleScroll);
+    
+      //   // Cleanup function: Scroll Event Listener সরিয়ে ফেলুন
+      //   return () => {
+      //     window.removeEventListener('scroll', handleScroll);
+      //   };
+      // }, []);
 
 
   const {searchQuery} = state;
@@ -86,7 +106,7 @@ console.log(ProductData.categoryItem);
             <div>
               
              {/* CategoryItem */}
-             < CategoryItem />
+             <CategoryItem />
 
              {/* <ShopTop /> */}
               {productData ? 

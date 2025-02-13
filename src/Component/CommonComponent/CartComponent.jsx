@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import CartDetailsModal from './CartDetailsModal'
 import { CartContext } from "../../contexts";
+import ItemInOrDecrementButton from "./common/ItemInorDecrementButton";
 
 
 // eslint-disable-next-line react/prop-types
 const CartComponent = ({cartData}) => {
-
 
 
   const [ShowModal, setShowModal] = useState(false);
@@ -19,8 +19,6 @@ const CartComponent = ({cartData}) => {
     const found = state.EachCartData.find((item) => {
       return item.id === cartData.id
     })
-
-   
     if (!found) {
      dispatch({
       type: 'ADD_TO_CARD',
@@ -80,8 +78,12 @@ const CartComponent = ({cartData}) => {
             <span className="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded">
               {cartData.offer}
             </span>
-            <button onClick={(event) => HandleAddToCart (event,cartData)} className="text-green-600 bg-white text-xs font-semibold px-4 py-2 rounded">
-              {isInCart ? <span>IN</span> :  <span>ADD</span> }
+            <button onClick={(event) => HandleAddToCart (event,cartData)} className={`text-green-600 bg-white text-[15px] font-semibold rounded ${isInCart ? " " :"px-4 py-1"}`}>
+              {isInCart ? 
+              <div>
+                <ItemInOrDecrementButton />
+              </div> : 
+              <span className="text-xs">ADD</span> }
             </button>
           </div>
         </div>

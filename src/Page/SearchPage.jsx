@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import Search from "../Component/CommonComponent/Search"
-// import axios from 'axios'
 import { MdOutlineChevronLeft, MdOutlineChevronRight } from "react-icons/md";
 
 const SearchPage = () => {
