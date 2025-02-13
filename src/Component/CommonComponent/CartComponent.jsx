@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import CartDetailsModal from './CartDetailsModal'
 import { CartContext } from "../../contexts";
-import ItemInOrDecrementButton from "./common/ItemInorDecrementButton";
+import ItemInOrDecrementButton from "./common/ItemInOrDecrementButton";
 
 
 // eslint-disable-next-line react/prop-types
@@ -16,13 +16,13 @@ const CartComponent = ({cartData}) => {
   // HandleAddToCart 
   const HandleAddToCart = (event, cartData) => {
     event.stopPropagation();
-    const found = state.EachCartData.find((item) => {
+    const found = state.EachCartData.find((item) => { 
       return item.id === cartData.id
     })
     if (!found) {
      dispatch({
       type: 'ADD_TO_CARD',
-      payload:{
+      payload: {
         ...cartData
       }
      })
