@@ -1,13 +1,12 @@
 
 
 const initialState = {
-    EachCartData: localStorage.getItem("CartItem") 
-    ? JSON.parse(localStorage.getItem("CartItem"))
+    EachCartData: localStorage.getItem("EachCartData") 
+    ? JSON.parse(localStorage.getItem("EachCartData"))
     :
     [],
     SortDate: "",
     searchQuery: "",
-    count: 0
 } 
 
 const cartReducer = (state, action) => {
@@ -26,16 +25,24 @@ const cartReducer = (state, action) => {
         }
 
         case "INCREMENT": 
-
         return {
-             ...state, count: state.count + 1 
-        }
+            ...state,
+            EachCartData: state.EachCartData.map(item =>
+                item.id === action.payload.id
+                    ? { ...item, CartQuantity: item.CartQuantity + 1 }
+                    : item
+            )
+        };
 
         case "DECREMENT": 
-
         return {
-            ...state, count: state.count - 1 
-        }
+            ...state,
+            EachCartData: state.EachCartData.map(item =>
+                item.id === action.payload.id && item.CartQuantity > 1
+                    ? { ...item, CartQuantity: item.CartQuantity - 1 }
+                    : item
+            )
+        };
 
         case "SEARCH":
 

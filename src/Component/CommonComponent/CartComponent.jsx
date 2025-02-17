@@ -69,6 +69,7 @@ const CartComponent = ({cartData}) => {
                 src={cartData.image}
                 alt="Cheesecake"
                 className="w-full h-[250px] object-cover"
+                loading="lazy"
               />
             </div>
           </a>

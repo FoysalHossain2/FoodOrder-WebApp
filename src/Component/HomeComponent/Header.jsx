@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import Search from "../CommonComponent/Search";
 import FoodOrder from '../../assets/FoodOrder.png'
@@ -10,9 +9,14 @@ import Headroom from 'react-headroom'
 import { FaRegCircleUser } from "react-icons/fa6";
 import BottomNavbar from '../CommonComponent/common/BottomNavbar'
 import Addmin from "../CommonComponent/common/Addmin";
+import Login from "../CommonComponent/Login";
+import { auth, db } from "../../../firebase";
+import { getDoc , doc} from "firebase/firestore";
+
 
 const Header = () => {
 
+  const [UserLogin, setUserLogin] = useState(null)
   const [ShowAdMin, setShowAdMin] = useState(false)
   const {state, dispatch} = useContext(CartContext);
   const location = useLocation()
@@ -23,14 +27,42 @@ const Header = () => {
   }
 
 
+  const HandleClose = () => {
+    setModalShow(false)
+  }
+
+  const fetchUserData = async () => {
+    auth.onAuthStateChanged(async(user) => {
+      console.log(user);
+      const docRef = doc(db, "Users", user.uid);
+      const docSnap = await getDoc(docRef)
+      if (docSnap.exists()) {
+        setUserLogin(docSnap.data())
+        console.log(docSnap.data())
+      } else {
+        console.log("user not logged in")
+      }
+    })
+  }
+
+  useEffect(() => {
+    fetchUserData()
+  }, [])
+  
+  async function HandleLogout() {
+    try {
+      await auth.signOut()
+      window.location.href = '/'
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <>
       {/*=========== Header part =*/}
       <Headroom className="z-50">
-        <div
-          className={`lg:py-[10px] py-2 bg-white `}
-        >
-        
+        <nav className={`lg:py-[10px] py-2 bg-white `}>
         
           <div className="container mx-auto ">
             {/* --- for lg device ---  */}
@@ -62,21 +94,33 @@ const Header = () => {
                 <div className=" max-sm:hidden md:hidden max-md:hidden lg:block ">
                   <div className="flex items-center gap-x-4 ">
 
-                    <div>
-                      <NavLink to={`/singin`} className={'text-[18px] font-DM_Sans'}>
-                        Login
-                      </NavLink>
-                    </div>
+                    {
+                      UserLogin ? (
+                      <div><Addmin /></div>
+                      )
+                      :
+                      (
+                      <div className="flex items-center gap-x-4 ">
+                        <div>
+                            <button >
+                              <NavLink to={`/singin`} className={'text-[18px] font-DM_Sans'}>
+                                Login
+                              </NavLink>
+                            </button>
+                          </div>
 
-                    <div className="border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block"></div>
+                          <div className="border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block"></div>
 
-                    {/* --------------- login part ------------------*/}
-                    <div>
-                      <NavLink to={`/singup`} className={'text-[18px] font-DM_Sans'} >
-                        Sing Up
-                      </NavLink>
-                    </div>
-                    {/* --------------- login part ------------------*/}
+                          {/* --------------- login part ------------------*/}
+                          <div>
+                            <NavLink to={`/singup`} className={'text-[18px] font-DM_Sans'} >
+                              Sing Up
+                            </NavLink>
+                          </div>
+                          {/* --------------- login part ------------------*/}
+                      </div>
+                      )
+                   }
 
                     <div className="border-r border-gray-300 h-5 w-[2px]  "></div>
 
@@ -137,7 +181,7 @@ const Header = () => {
             {/* === for md, sm device === */}
 
           </div>
-          </div>
+        </nav>
       </Headroom>
       
            

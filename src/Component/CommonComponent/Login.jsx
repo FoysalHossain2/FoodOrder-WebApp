@@ -2,11 +2,11 @@ import React from 'react'
 import LoginForm from './auth/LoginForm'
 import { NavLink , Link} from "react-router";
 
-const Login = () => {
+const Login = ({onClose}) => {
   return (
     <>
         <div
-      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-white bg-opacity- z-50 flex items-center justify-center"
     >
       
       <div
@@ -15,9 +15,9 @@ const Login = () => {
      
         <button
           id="closeModalBtn"
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+          className="absolute top-4 right-4 text-black hover:text-gray-800"
         >
-          <i className="ph-x text-2xl"></i>
+          <button onClick={onClose} className="ph-x text-2xl">x</button>
         </button>
 
      

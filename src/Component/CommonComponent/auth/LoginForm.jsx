@@ -1,10 +1,15 @@
 import React from 'react'
 import Filed from './Filed'
 import {useForm} from 'react-hook-form'
-import {registerWithEmailPassword} from '../../../firebase'
-
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from '../../../../firebase'
+import Toster from '../common/Toster';
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 
 const LoginForm = () => {
+
+  const navigate = useNavigate();
 
     const {
     register, 
@@ -14,13 +19,14 @@ const LoginForm = () => {
     } = useForm();
 
     const submitForm = async (fromData) => {
-        try {
-            const user = await registerWithEmailPassword(email, password)
-            console.log(user)
-        } catch (err) {
-            console.log(err);
-            
-        }
+      const { email, password } = fromData;
+      try {
+         await signInWithEmailAndPassword(auth, email, password);
+         toast.success('Successfully logging')
+         navigate('/')
+      } catch (error) {
+        toast.error(error.message)
+      }
     }
 
   return (
@@ -43,7 +49,7 @@ const LoginForm = () => {
         <Filed  error={errors.password}>
           <input
             {...register("password", {
-            //   required: true,
+              required: true,
               minLength: {
                 value: 6,
                 message: "Your password must be at least 6 characters ",
@@ -64,6 +70,7 @@ const LoginForm = () => {
             className="w-full bg-primary text-white rounded-full py-3 hover:bg-primary transition bg-green-500"
             >
              Continue
+             <Toaster />
             </button>
         </form>
     </>

@@ -23,12 +23,12 @@ const CategoryItem = () => {
 // add Slider functionality 
   const HandleNext = () => {    
     if(Category.length - 8 === Slider) return false
-    setSlider( Slider + 2)
+    setSlider( Slider + 1)
   }
 
   const HandlePrevious = () => {    
     if(Slider == 0) return false
-    setSlider( Slider - 2) 
+    setSlider( Slider - 1) 
   }
   
  
